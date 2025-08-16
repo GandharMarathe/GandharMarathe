@@ -16,7 +16,7 @@
 ---
 
 ## 🚀 About Me
-- 🏗️ **Currently Building:** A wind-measuring anemometer using ping-pong balls, sensors, and Arduino magic. 💨  
+- 🏗️ **Currently Building:** Website with centralised DB and Blockchain to prevent disease outbreak.  
 - 💡 **I love:** Experimenting with physics, automation, and creative coding.  
 - 🛠️ **Tinkering with:** Arduino, Python, C++, and game engines (Unreal & Unity).  
 - 🎯 **Fun Fact:** My code works 60% of the time... every time. 😆  
