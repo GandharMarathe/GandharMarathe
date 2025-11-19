@@ -27,7 +27,7 @@ const gandhar = {
 - Currently working on **AI-powered web applications**
 - Exploring **advanced AI integrations** and **real-time collaboration tools**
 - Passionate about building tools that **enhance team productivity**
-- 2024 Goal: Contribute more to **open source projects**
+- 2025 Goal: Contribute more to **open source projects**
 
 ---
 
