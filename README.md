@@ -35,24 +35,4 @@ A comprehensive social media analytics platform built with React and TypeScript 
 
 **Status:** In Development
 
-## GitHub Stats
 
-![Your GitHub stats](https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=dark)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=yourusername&layout=compact&theme=dark)
-
-## How to reach me
-
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
-- Portfolio: [yourportfolio.com](https://yourportfolio.com)
-
-## Currently Learning
-
-- Advanced React patterns
-- Cloud architecture
-- Machine Learning fundamentals
-
----
-
-From [yourusername](https://github.com/yourusername)
