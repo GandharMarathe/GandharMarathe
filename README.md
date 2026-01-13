@@ -1,165 +1,168 @@
+# Analytica - Social Media Analytics Platform
+
 <div align="center">
-  
-# Hi, I'm Gandhar
 
-### Full Stack Developer | Open Source Contributor
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/gandhar)
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/gandhar)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:gandhar@example.com)
+[![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=flat&logo=react&logoColor=white)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Latest-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1.12-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/Vite-6.3.5-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
 
 </div>
 
----
+## About
 
-## About Me
+Analytica is a social media analytics platform that consolidates data from multiple platforms into a single dashboard. The application helps content creators and businesses track their social media performance across Instagram, Facebook, X (Twitter), LinkedIn, and YouTube.
 
-```typescript
-const gandhar = {
-    role: "Full Stack Developer",
-    focus: ["AI Integration", "Real-time Systems", "Scalable Web Apps"],
-    currentlyBuilding: "AI-powered collaborative platforms",
-    openToDiscuss: ["React", "Next.js", "MongoDB", "Socket.io", "OpenAI API"],
-    funFact: "I turn coffee into code and ideas into reality"
-};
-```
+## Key Features
 
-- Currently working on **AI-powered web applications**
-- Exploring **advanced AI integrations** and **real-time collaboration tools**
-- Passionate about building tools that **enhance team productivity**
-- 2025 Goal: Contribute more to **open source projects**
+- **Multi-Platform Integration** - Connect and manage multiple social media accounts
+- **AI-Powered Insights** - Get intelligent recommendations based on your data
+- **Real-Time Analytics** - Track engagement, reach, and performance metrics
+- **Content Analysis** - Compare performance between different content formats
+- **Optimal Timing** - Discover the best times to post for maximum engagement
+- **Report Generation** - Export professional analytics reports
 
----
+## Features
+
+### Unified Dashboard
+- Centralized view of all social media metrics
+- Cross-platform performance comparison
+- Real-time engagement tracking
+- Audience growth analytics
+
+### AI Assistant
+- Interactive chat interface for quick insights
+- Personalized performance recommendations
+- Content strategy suggestions
+- Trend analysis and predictions
+
+### Advanced Analytics
+- Detailed engagement rate calculations
+- Comprehensive reach and impression tracking
+- Content format performance analysis
+- Audience demographic insights
+
+### Account Management
+- Secure social media account integration
+- Business account verification
+- Multi-account support
 
 ## Tech Stack
 
-<div align="center">
+**Frontend**
+- React 18.3.1 with TypeScript
+- React Router DOM for navigation
+- Tailwind CSS 4.1.12 for styling
 
-### Frontend
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+**UI Components**
+- Radix UI for accessible components
+- Lucide React for icons
+- Recharts for data visualization
+- Motion for animations
 
-### Backend
-![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
-![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white)
+**Development Tools**
+- Vite 6.3.5 as build tool
+- ESLint and Prettier for code quality
+- PostCSS for CSS processing
 
-### AI & Tools
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+## Project Structure
 
-</div>
-
----
-
-## GitHub Stats
-
-<div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=gandhar&show_icons=true&theme=radical&include_all_commits=true&count_private=true&hide_border=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=gandhar&layout=compact&theme=radical&hide_border=true"/>
-</div>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=gandhar&theme=radical&hide_border=true" alt="GitHub Streak" />
-</div>
-
----
-
-## Featured Projects
-
-### [Taciturnus - Collaborative AI Chat Space](https://github.com/gandhar/taciturnus)
-
-> Real-time multi-user chatroom with intelligent AI assistant integration
-
-**Key Features:**
-- Real-time multi-user chat powered by Socket.io
-- AI Assistant with 4 modes: Summarizer, Brainstorm, Moderator & Research
-- Command-based AI: `@AI summarize`, `@AI next steps`, `@AI explain`
-- Auto-generated conversation summaries every 10 minutes
-- Export chat history to text files
-- Room-based system with unique access codes
-- Modern Discord-inspired UI with participant sidebar
-
-**Tech Stack:**
 ```
-Frontend: Next.js 14 • React 18 • Tailwind CSS • Zustand
-Backend:  Node.js • Express • Socket.io • Firebase Firestore
-AI:       OpenAI API
+src/
+├── app/
+│   ├── components/
+│   │   └── ui/           # Reusable UI components
+│   ├── pages/
+│   │   ├── LandingPage.tsx    # Marketing homepage
+│   │   ├── LoginPage.tsx      # User authentication
+│   │   ├── SignupPage.tsx     # User registration
+│   │   ├── ConnectPage.tsx    # Social media integration
+│   │   └── DashboardPage.tsx  # Main analytics dashboard
+│   └── App.tsx          # Main application component
+├── styles/
+│   ├── index.css        # Global styles
+│   ├── tailwind.css     # Tailwind imports
+│   └── fonts.css        # Custom font definitions
+└── main.tsx             # Application entry point
 ```
 
-**Quick Start:**
+## Getting Started
+
+### Prerequisites
+- Node.js 18 or higher
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/analytica.git
+   cd analytica
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+
+3. Start the development server
+   ```bash
+   npm run dev
+   ```
+
+4. Open http://localhost:5173 in your browser
+
+### Building for Production
+
 ```bash
-git clone https://github.com/gandhar/taciturnus.git
-cd taciturnus && npm install
-npm run dev
+npm run build
 ```
 
----
+## Use Cases
 
-## Contribution Graph
+**Content Creators**
+- Track engagement metrics across all platforms
+- Identify top-performing content formats
+- Optimize posting schedules based on audience activity
+- Monitor follower growth and engagement trends
 
-[![Gandhar's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=gandhar&theme=react-dark&hide_border=true&area=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
+**Marketing Teams**
+- Analyze cross-platform campaign performance
+- Generate ROI reports for social media activities
+- Compare content strategy effectiveness
+- Track brand mention and engagement metrics
 
----
+**Businesses**
+- Monitor brand awareness and reach
+- Analyze customer engagement patterns
+- Measure social media return on investment
+- Create comprehensive performance reports
 
-## GitHub Trophies
+## Development Roadmap
 
-<div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=gandhar&theme=radical&no-frame=true&no-bg=true&row=1&column=7" alt="GitHub Trophies" />
-</div>
+- [ ] Integration with real social media APIs
+- [ ] Enhanced AI-powered content suggestions
+- [ ] Team collaboration features
+- [ ] Mobile application development
+- [ ] Advanced reporting and export capabilities
+- [ ] White-label customization options
 
----
+## Contributing
 
-## What I'm Working On
+Contributions are welcome. Please follow these steps:
 
-```javascript
-const currentProjects = [
-    {
-        name: "Taciturnus",
-        status: "Active Development",
-        description: "AI-powered collaborative chat platform",
-        nextFeature: "Enhanced AI context awareness"
-    },
-    {
-        name: "Open Source Contributions",
-        status: "Ongoing",
-        focus: "React ecosystem & AI tools"
-    }
-];
-```
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Open a Pull Request
 
----
+## License
 
-## Let's Connect!
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-<div align="center">
+## Contact
 
-I'm always open to interesting conversations and collaboration opportunities!
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Let's_Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/gandhar)
-[![Twitter](https://img.shields.io/badge/Twitter-Follow_Me-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/gandhar)
-[![Email](https://img.shields.io/badge/Email-Say_Hi-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:gandhar@example.com)
-
-</div>
-
----
-
-<div align="center">
-  
-### Random Dev Quote
-
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
-
-### Profile Views
-
-![](https://komarev.com/ghpvc/?username=gandhar&color=blueviolet&style=for-the-badge&label=Profile+Views)
-
-**From [gandhar](https://github.com/gandhar) | Built with passion and dedication**
-
-</div>
+- GitHub: [@yourusername](https://github.com/yourusername)
+- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
+- Email: your.email@example.com
