@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Three-level type system: dot-matrix display, sans content, mono UI. */
+  --font-dot: var(--font-doto), var(--font-space-mono), ui-monospace, monospace;
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, "SFMono-Regular", monospace;
+
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-dot-pulse: dot-pulse 1.2s ease-in-out infinite;
+  --animate-status: status 2.4s ease-in-out infinite;
+  --animate-fade-in: fade-in 1.4s var(--ease-out-expo) both;
+  --animate-breathe: breathe 6s ease-in-out infinite;
+
+  @keyframes dot-pulse {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 1; }
+  }
+  @keyframes status {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgb(167 139 250 / 0.5); }
+    50% { opacity: 0.6; box-shadow: 0 0 0 5px rgb(167 139 250 / 0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.75; }
+    50% { opacity: 1; }
+  }
+}
+
+/* Not inline: utilities reference these variables, so print can swap them. */
+@theme {
+  --color-bg: #09090b;
+  --color-surface: #101013;
+  --color-fg: #ecebe6;
+  --color-muted: #8f8f98;
+  --color-dim: #4a4a52;
+  --color-line: rgb(255 255 255 / 0.1);
+  --color-accent: #a78bfa;
+  --color-accent-deep: #7c5cf0;
+}
+
+/* Page gutter + max width. */
+@utility shell {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) { padding-inline: 2rem; }
+  @media (width >= 64rem) { padding-inline: 3rem; }
+}
+
+/* Mono UI / metadata label. */
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@utility dot-grid {
+  background-image: radial-gradient(circle, rgb(255 255 255 / 0.09) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+html {
+  background: var(--color-bg);
+  color-scheme: dark;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* The custom cursor replaces the native one on fine pointers. */
+html.custom-cursor,
+html.custom-cursor * {
+  cursor: none !important;
+}
+
+@media print {
+  :root {
+    --color-bg: #ffffff;
+    --color-surface: #f4f4f5;
+    --color-fg: #111113;
+    --color-muted: #45454d;
+    --color-dim: #6b6b74;
+    --color-line: rgb(0 0 0 / 0.16);
+    --color-accent: #5b3fd6;
+  }
+  html {
+    color-scheme: light;
+  }
+}
