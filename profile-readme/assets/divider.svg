@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 12" role="presentation">
+  <style>
+    .scan { animation: scan 6s cubic-bezier(.6,0,.4,1) infinite; }
+    @keyframes scan { from { transform: translateX(-120px) } to { transform: translateX(1200px) } }
+    @media (prefers-reduced-motion: reduce) { .scan { animation: none; transform: translateX(540px) } }
+  </style>
+  <line x1="3" y1="6" x2="1197" y2="6" stroke="#8b8b96" stroke-opacity=".45" stroke-width="2" stroke-linecap="round" stroke-dasharray=".1 10"/>
+  <line class="scan" x1="0" y1="6" x2="120" y2="6" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" stroke-dasharray=".1 10"/>
+</svg>

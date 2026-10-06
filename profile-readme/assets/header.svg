@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-label="Gandhar Marathe — I build software, products, and intelligent systems.">
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#ffffff" opacity="0.07"/>
+    </pattern>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#a78bfa" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fade" x1="0" x2="1">
+      <stop offset="0.45" stop-color="#0b0b0e"/>
+      <stop offset="1" stop-color="#0b0b0e" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="t1"><rect x="92" y="236" height="36" width="345"><animate attributeName="width" dur="12s" repeatCount="indefinite" values="0;345;345;0;0" keyTimes="0;0.1;0.28;0.33;1"/></rect></clipPath>
+    <clipPath id="t2"><rect x="92" y="236" height="36" width="0"><animate attributeName="width" dur="12s" begin="4s" repeatCount="indefinite" values="0;360;360;0;0" keyTimes="0;0.1;0.28;0.33;1"/></rect></clipPath>
+    <clipPath id="t3"><rect x="92" y="236" height="36" width="0"><animate attributeName="width" dur="12s" begin="8s" repeatCount="indefinite" values="0;435;435;0;0" keyTimes="0;0.1;0.28;0.33;1"/></rect></clipPath>
+  </defs>
+  <style>
+    text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .in { opacity: 0; animation: in .9s cubic-bezier(.2,.7,.2,1) forwards; }
+    .d1 { animation-delay: .15s } .d2 { animation-delay: .35s } .d3 { animation-delay: .6s }
+    @keyframes in { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
+    .pulse { animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: .25 } }
+    .breathe { animation: breathe 6s ease-in-out infinite; transform-origin: 980px 180px; }
+    @keyframes breathe { 50% { opacity: .55; transform: scale(1.12) } }
+    .blink { animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0 } }
+    .lat { fill: none; stroke: #e9e6f5; stroke-width: 3; stroke-linecap: round; stroke-dasharray: .1 12; animation: spin linear infinite; }
+    @keyframes spin { to { stroke-dashoffset: -12.1 } }
+    @media (prefers-reduced-motion: reduce) { .in, .pulse, .breathe, .blink, .lat { animation: none; opacity: 1 } }
+  </style>
+
+  <rect width="1200" height="360" rx="18" fill="#0b0b0e"/>
+  <rect width="1200" height="360" rx="18" fill="url(#grid)"/>
+
+  <!-- dot globe -->
+  <circle class="breathe" cx="980" cy="180" r="190" fill="url(#glow)" opacity=".35"/>
+  <g class="in d3">
+    <circle cx="980" cy="180" r="120" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-dasharray=".1 9" opacity=".7"/>
+    <ellipse class="lat" cx="980" cy="76"  rx="60"  ry="17" style="animation-duration:2.4s" opacity=".5"/>
+    <ellipse class="lat" cx="980" cy="120" rx="104" ry="29" style="animation-duration:1.4s" opacity=".7"/>
+    <ellipse class="lat" cx="980" cy="180" rx="120" ry="34" style="animation-duration:1.2s"/>
+    <ellipse class="lat" cx="980" cy="240" rx="104" ry="29" style="animation-duration:1.4s" opacity=".7"/>
+    <ellipse class="lat" cx="980" cy="284" rx="60"  ry="17" style="animation-duration:2.4s" opacity=".5"/>
+  </g>
+  <rect width="760" height="360" rx="18" fill="url(#fade)"/>
+
+  <!-- copy -->
+  <g class="in d1">
+    <circle class="pulse" cx="70" cy="85" r="5" fill="#a78bfa"/>
+    <text x="88" y="90" font-size="14" letter-spacing="3" fill="#8b8b96">IT STUDENT / FULL STACK / AI-ML / DEVOPS</text>
+  </g>
+  <text class="in d2" x="62" y="188" font-size="76" font-weight="700" letter-spacing="4" textLength="700" lengthAdjust="spacingAndGlyphs" fill="#f4f3f8">GANDHAR MARATHE</text>
+
+  <g class="in d3" font-size="22" fill="#c9c6d6">
+    <text x="64" y="262" fill="#a78bfa">&gt;</text>
+    <text x="92" y="262" textLength="345" clip-path="url(#t1)">FULL-STACK APPLICATIONS</text>
+    <text x="92" y="262" textLength="360" clip-path="url(#t2)">MACHINE-LEARNING SYSTEMS</text>
+    <text x="92" y="262" textLength="435" clip-path="url(#t3)">THE INFRASTRUCTURE UNDERNEATH</text>
+    <rect class="blink" x="96" y="242" width="11" height="24" fill="#a78bfa">
+      <animate attributeName="x" dur="12s" repeatCount="indefinite"
+        values="96;441;441;96;96;456;456;96;96;531;531;96;96"
+        keyTimes="0;0.1;0.28;0.33;0.3333;0.4333;0.6133;0.6633;0.6667;0.7667;0.9467;0.9967;1"/>
+    </rect>
+  </g>
+</svg>
