@@ -3,6 +3,7 @@
 import { ReactLenis } from "lenis/react";
 import { MotionConfig, useReducedMotion } from "motion/react";
 import { Cursor } from "./Cursor";
+import { Sfx } from "./Sfx";
 import "lenis/dist/lenis.css";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -18,6 +19,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         </ReactLenis>
       )}
       <Cursor />
+      <Sfx />
     </MotionConfig>
   );
 }

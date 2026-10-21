@@ -8,56 +8,76 @@ import {
   type MotionValue,
 } from "motion/react";
 import { useRef } from "react";
-import { inProgress, site } from "@/data/site";
+import { experience, inProgress, site } from "@/data/site";
 import { DotLoader, SectionHeader } from "./ui/primitives";
 import { Reveal } from "./ui/Reveal";
 
-const STATEMENT =
-  "I’m an Information Technology student who learns by shipping. My work runs from the interface down to the systems underneath — a field-service platform on Spring Boot and React, real-time chat with an AI in the room, a neural network written by hand in NumPy. I care less about the stack than about solving the right problem.";
+// Lit one phrase at a time on scroll; the last phrase lands in the accent color.
+const STATEMENT = [
+  "I’m an Information Technology student who learns by shipping.",
+  "My work runs from the interface down to the systems underneath —",
+  "a field-service platform on Spring Boot and React,",
+  "real-time chat with an AI in the room,",
+  "a neural network written by hand in NumPy.",
+  "I care less about the stack than about solving the right problem.",
+];
 
 const SPEC = [
   ["Name", site.name],
   ["Location", site.location],
-  ["Education", site.education],
+  ["Education", `${site.degree}, ${site.institution} — ${site.studyYears}`],
+  ["Experience", `${experience[0].role}, ${experience[0].org} — 2026`],
   ["Focus", site.focus.join(" / ")],
 ] as const;
 
-function Word({
+function Phrase({
   children,
   progress,
   range,
+  className,
 }: {
   children: string;
   progress: MotionValue<number>;
   range: [number, number];
+  className?: string;
 }) {
-  const opacity = useTransform(progress, range, [0.16, 1]);
-  return <motion.span style={{ opacity }}>{children} </motion.span>;
+  // Unlit phrases stay legible: the effect is emphasis, not hiding the text.
+  const opacity = useTransform(progress, range, [0.35, 1]);
+  return (
+    <motion.span className={className} style={{ opacity }}>
+      {children}{" "}
+    </motion.span>
+  );
 }
 
-/** Paragraph whose words light up one by one as it scrolls through the viewport. */
-function ScrollStatement({ text }: { text: string }) {
+/** Paragraph whose phrases light up one by one as it scrolls through the viewport. */
+function ScrollStatement({ phrases }: { phrases: string[] }) {
   const ref = useRef<HTMLParagraphElement>(null);
   const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.85", "end 0.5"] });
-  const words = text.split(" ");
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.9", "end 0.75"] });
+  const last = phrases.length - 1;
 
   return (
     <p
       ref={ref}
-      className="text-[1.7rem] font-light leading-[1.22] tracking-tight sm:text-4xl lg:text-[2.9rem] lg:leading-[1.16]"
+      className="text-[1.7rem] font-light leading-[1.3] tracking-tight sm:text-4xl lg:text-[2.9rem] lg:leading-[1.25]"
     >
-      {reduceMotion
-        ? text
-        : words.map((word, i) => (
-            <Word
-              key={i}
-              progress={scrollYProgress}
-              range={[i / words.length, Math.min(1, (i + 4) / words.length)]}
-            >
-              {word}
-            </Word>
-          ))}
+      {phrases.map((phrase, i) =>
+        reduceMotion ? (
+          <span key={i} className={i === last ? "text-accent" : undefined}>
+            {phrase}{" "}
+          </span>
+        ) : (
+          <Phrase
+            key={i}
+            progress={scrollYProgress}
+            range={[i / phrases.length, (i + 1) / phrases.length]}
+            className={i === last ? "text-accent" : undefined}
+          >
+            {phrase}
+          </Phrase>
+        ),
+      )}
     </p>
   );
 }
@@ -74,7 +94,7 @@ export function About() {
 
       <div className="grid grid-cols-1 gap-x-12 gap-y-16 lg:grid-cols-12">
         <div className="lg:col-span-8">
-          <ScrollStatement text={STATEMENT} />
+          <ScrollStatement phrases={STATEMENT} />
         </div>
 
         <aside className="lg:col-span-4 lg:pt-3">

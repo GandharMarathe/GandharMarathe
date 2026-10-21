@@ -3,6 +3,8 @@ import { Capabilities } from "@/components/Capabilities";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Github } from "@/components/Github";
+import { Hud } from "@/components/Hud";
+import { StartScreen } from "@/components/StartScreen";
 import { Hero } from "@/components/hero/Hero";
 import { Nav } from "@/components/Nav";
 import { Projects } from "@/components/projects/Projects";
@@ -36,6 +38,8 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <Hud />
+      <StartScreen />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

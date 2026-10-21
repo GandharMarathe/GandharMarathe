@@ -51,7 +51,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${doto.variable} ${spaceGrotesk.variable} ${spaceMono.variable} antialiased`}
+      // The inline script below may add `started` before hydration.
+      suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{sessionStorage.getItem("gm-started")&&document.documentElement.classList.add("started")}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="min-h-svh overflow-x-clip">
         <Providers>{children}</Providers>
       </body>

@@ -1,12 +1,13 @@
 import { site } from "@/data/site";
-import { getGithubData } from "@/lib/github";
+import { getContributions, getGithubData } from "@/lib/github";
+import { ContributionGame } from "./ContributionGame";
 import { ButtonLink, SectionHeader, StatusDot } from "./ui/primitives";
 import { Reveal } from "./ui/Reveal";
 
 const formatDate = (iso: string) => iso.slice(0, 10).replaceAll("-", ".");
 
 export async function Github() {
-  const data = await getGithubData();
+  const [data, contributions] = await Promise.all([getGithubData(), getContributions()]);
   const stats = [
     { value: data.publicRepos, label: "Public repositories" },
     { value: data.followers, label: "Followers" },
@@ -78,6 +79,12 @@ export async function Github() {
           </ul>
         </Reveal>
       </div>
+
+      {contributions && (
+        <Reveal>
+          <ContributionGame {...contributions} />
+        </Reveal>
+      )}
     </section>
   );
 }

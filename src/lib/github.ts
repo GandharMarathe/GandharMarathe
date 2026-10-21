@@ -18,6 +18,9 @@ export type GithubData = {
   live: boolean;
 };
 
+export type ContributionDay = { date: string; count: number; level: 0 | 1 | 2 | 3 | 4 };
+export type Contributions = { total: number; days: ContributionDay[] };
+
 const RECENT_COUNT = 6;
 
 // Snapshot of the public GitHub API taken on 2026-10-04, used when the API is
@@ -90,6 +93,28 @@ async function api<T>(path: string): Promise<T> {
   });
   if (!res.ok) throw new Error(`GitHub API ${res.status} for ${path}`);
   return res.json() as Promise<T>;
+}
+
+/**
+ * Last year of the public contribution calendar. The REST API doesn't expose it
+ * without a token, so this reads a public mirror of the profile's calendar.
+ * Returns null on failure, and the graph is hidden rather than faked.
+ */
+export async function getContributions(): Promise<Contributions | null> {
+  try {
+    const res = await fetch(
+      `https://github-contributions-api.jogruber.de/v4/${site.githubUser}?y=last`,
+      { next: { revalidate: 86400 } },
+    );
+    if (!res.ok) return null;
+    const data = (await res.json()) as {
+      total: { lastYear: number };
+      contributions: ContributionDay[];
+    };
+    return { total: data.total.lastYear, days: data.contributions };
+  } catch {
+    return null;
+  }
 }
 
 export async function getGithubData(): Promise<GithubData> {

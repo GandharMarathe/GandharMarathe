@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
+import Image from "next/image";
 import { site } from "@/data/site";
 import { ButtonLink, StatusDot } from "../ui/primitives";
 import { EASE } from "../ui/Reveal";
@@ -12,15 +13,32 @@ const rise = (delay: number) => ({
   transition: { duration: 0.9, delay, ease: EASE },
 });
 
-const maskUp = (delay: number) => ({
-  initial: { y: "105%" },
-  animate: { y: 0 },
-  transition: { duration: 1.1, delay, ease: EASE },
-});
+/** Letters resolve out of a blur one by one. Screen readers get the plain word. */
+function BlurChars({ text, delay, className }: { text: string; delay: number; className?: string }) {
+  const reduceMotion = useReducedMotion();
+  return (
+    <span className={`block ${className ?? ""}`}>
+      <span className="sr-only">{text}</span>
+      {[...text].map((char, i) => (
+        <motion.span
+          key={i}
+          aria-hidden
+          className="inline-block"
+          initial={reduceMotion ? false : { opacity: 0, filter: "blur(14px)", y: "0.08em" }}
+          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+          transition={{ duration: 0.9, delay: delay + i * 0.045, ease: EASE }}
+        >
+          {char}
+        </motion.span>
+      ))}
+    </span>
+  );
+}
 
 const DISCIPLINES = ["IT", "Full Stack", "AI/ML", "DevOps"];
 
 export function Hero() {
+  const reduceMotion = useReducedMotion();
   return (
     <section id="top" className="relative flex min-h-svh flex-col overflow-hidden">
       <div
@@ -48,14 +66,24 @@ export function Hero() {
         </motion.p>
 
         <h1 className="mt-6 font-dot text-[clamp(3.4rem,13.5vw,11.5rem)] font-black uppercase leading-[0.86] tracking-tight">
-          <span className="block overflow-hidden">
-            <motion.span className="block" {...maskUp(0.25)}>
-              Gandhar
-            </motion.span>
-          </span>
-          <span className="block overflow-hidden">
-            <motion.span className="block text-fg/45" {...maskUp(0.35)}>
-              Marathe
+          <BlurChars text="Gandhar" delay={0.2} />
+          <span className="flex items-center gap-[0.12em]">
+            <BlurChars text="Marathe" delay={0.45} className="text-fg/55" />
+            <motion.span
+              className="relative size-[0.8em] shrink-0 overflow-hidden rounded-full shadow-[0_20px_50px_rgb(0_0_0/0.9)] ring-1 ring-line"
+              initial={reduceMotion ? false : { opacity: 0, filter: "blur(10px)", scale: 0.85 }}
+              animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+              transition={{ duration: 1.1, delay: 0.95, ease: EASE }}
+            >
+              {/* Decorative here: the heading already carries the name. */}
+              <Image
+                src="/gandhar.jpg"
+                alt=""
+                fill
+                preload
+                sizes="(min-width: 1024px) 150px, 18vw"
+                className="object-cover"
+              />
             </motion.span>
           </span>
         </h1>

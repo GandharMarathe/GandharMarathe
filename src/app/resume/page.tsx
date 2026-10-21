@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
 import { PrintButton } from "@/components/PrintButton";
 import { capabilities, projects } from "@/data/projects";
-import { inProgress, site } from "@/data/site";
+import { experience, inProgress, site } from "@/data/site";
 import { pageMetadata } from "@/lib/metadata";
 
 const title = `Resume — ${site.name}`;
@@ -18,6 +18,7 @@ const PROFILE =
 const contact = [
   { label: "GitHub", value: `github.com/${site.githubUser}`, href: site.github as string },
   ...(site.email ? [{ label: "Email", value: site.email as string, href: `mailto:${site.email}` }] : []),
+  ...(site.phone ? [{ label: "Phone", value: site.phone as string, href: `tel:${site.phone.replace(/\s/g, "")}` }] : []),
   ...(site.linkedin ? [{ label: "LinkedIn", value: "LinkedIn", href: site.linkedin as string }] : []),
   ...(site.url ? [{ label: "Web", value: site.url.replace(/^https?:\/\//, ""), href: site.url as string }] : []),
 ];
@@ -77,8 +78,33 @@ export default function ResumePage() {
         </Block>
 
         <Block heading="Education">
-          <p className="text-lg tracking-tight">{site.education}</p>
-          <p className="label mt-2 text-muted">Student — {site.location}</p>
+          <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+            <p className="text-lg tracking-tight">{site.institution}</p>
+            <span className="label text-dim">{site.studyYears}</span>
+          </div>
+          <p className="label mt-2 text-muted">{site.degree} — Thane, Maharashtra</p>
+        </Block>
+
+        <Block heading="Experience">
+          <ul className="space-y-7 print:space-y-4">
+            {experience.map((job) => (
+              <li key={job.org} className="break-inside-avoid">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                  <h3 className="text-lg tracking-tight">
+                    {job.org}
+                    <span className="text-muted"> — {job.role}</span>
+                  </h3>
+                  <span className="label text-dim">{job.period}</span>
+                </div>
+                <p className="label mt-2 text-muted">{job.place}</p>
+                <ul className="mt-3 max-w-2xl list-disc space-y-1.5 pl-5 leading-relaxed text-muted marker:text-dim">
+                  {job.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
         </Block>
 
         <Block heading="Projects">

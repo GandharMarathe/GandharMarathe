@@ -7,6 +7,7 @@ const links = [
   { label: "GitHub", value: `github.com/${site.githubUser}`, href: site.github as string },
   ...(site.linkedin ? [{ label: "LinkedIn", value: "LinkedIn", href: site.linkedin as string }] : []),
   ...(site.email ? [{ label: "Email", value: site.email as string, href: `mailto:${site.email}` }] : []),
+  ...(site.phone ? [{ label: "Phone", value: site.phone as string, href: `tel:${site.phone.replace(/\s/g, "")}` }] : []),
 ];
 
 export function Contact() {

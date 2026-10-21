@@ -1,4 +1,4 @@
-import { capabilities } from "@/data/projects";
+import { capabilities, projects } from "@/data/projects";
 import { SectionHeader } from "./ui/primitives";
 import { Reveal } from "./ui/Reveal";
 
@@ -8,8 +8,8 @@ export function Capabilities() {
       <SectionHeader
         id="stack-title"
         index="03"
-        label="Stack / Capabilities"
-        title={["What I can build,", "and where I’ve built it."]}
+        label="Stack / Stats"
+        title={["Player stats."]}
       />
 
       <ol className="border-b border-line">
@@ -26,6 +26,24 @@ export function Capabilities() {
               <p className="leading-relaxed text-muted lg:col-span-4">{cap.description}</p>
 
               <div className="lg:col-span-4">
+                {/* Power = share of the showcased projects that use this capability. */}
+                <div className="mb-5 flex items-center gap-3">
+                  <span
+                    role="img"
+                    aria-label={`Used in ${cap.seenIn.length} of ${projects.length} projects`}
+                    className="flex gap-1"
+                  >
+                    {projects.map((p, k) => (
+                      <span
+                        key={p.slug}
+                        className={`h-3 w-5 ${k < cap.seenIn.length ? "bg-accent" : "bg-fg/10"}`}
+                      />
+                    ))}
+                  </span>
+                  <span aria-hidden className="font-dot text-base font-black leading-none text-accent">
+                    {cap.seenIn.length}/{projects.length}
+                  </span>
+                </div>
                 <ul aria-label="Technologies" className="label flex flex-wrap gap-x-2 gap-y-1.5 text-fg">
                   {cap.tech.map((tech, j) => (
                     <li key={tech} className="flex items-center gap-2">
